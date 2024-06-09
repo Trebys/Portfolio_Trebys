@@ -1,0 +1,59 @@
+---
+import NodeJs from "./icons/NodeJs.astro";
+import Bootstrap from "./icons/Bootstrap.astro";
+import JavaScript from "./icons/JavaScript.astro";
+const TAGS = {
+  NODE: {
+    name: 'NodeJs',
+    class: 'bg-[#6fa662] text-white',
+    icon:  NodeJs,
+  },
+
+  BOOTSTRAP: {
+    name: 'Bootstrap',
+    class: 'bg-purple-500 text-white',
+    icon:  Bootstrap,
+  },
+
+  JAVASCRIPT: {
+    name: 'JavaScript',
+    class: 'bg-yellow-500 text-black',
+    icon:  JavaScript,
+  },
+};
+
+
+
+const PROJECTS = [
+  {
+    title: 'Sistema de Notas',
+    description: 'lorem ipsum dolor sielitt amet, consectetur adipiscing ,lorem ipsum dolor sielitt amet, consectetur adipiscing ,lorem ipsum dolor sielitt amet, consectetur adipiscing ,',
+    link: '#',
+    github: '#',
+    image: '/projects/Notas.webp',
+    tags: [TAGS.NODE, TAGS.BOOTSTRAP, TAGS.JAVASCRIPT],
+  },
+];
+---
+
+{
+  PROJECTS.map(({ image, title, description, tags }) => (
+    <article>
+      <h3 class="text-2xl font-semibold mb-2">{title}</h3>
+      <p class="text-lg mb-4 text-pretty">{description}</p>
+      <ul class="flex gap-x-4 flex-row mb-2">
+        {tags.map((tag) => (
+          <li>
+            <span class={`flex gap-x-2 rounded-full text-sm ${tag.class} py-1 px-2`}>
+            <tag.icon class="size-4"/>
+            {tag.name}
+          </span>
+          </li>
+          ))}
+      </ul>
+      <img class="rounded shadow-2xl shadow-white/10"
+      src={image}
+      alt={`Captura de pantalla del proyecto ${image}`} />
+    </article>
+  ))
+}

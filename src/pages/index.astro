@@ -1,0 +1,150 @@
+---
+import Layout from "../layouts/Layout.astro";
+import LinkedInIcon from "../components/icons/LinkedIn.astro";
+import GitHubIcon from "../components/icons/GitHub.astro";
+import SocialPill from "../components/SocialPill.astro";
+import MailIcon from "../components/icons/Mail.astro";
+import SectionContainer from "../components/SectionContainer.astro";
+import CodeIcon from "../components/icons/Code.astro";
+import Projects from "../components/Projects.astro";
+import UserIcon from "../components/icons/User.astro";
+
+
+---
+
+<Layout 
+title="Portfolio de Trebys - Ingeniero en TI"
+description="Contrata a Esteban López, Alias Trebys como Ingeniero en TI para tu empresa.">
+
+  <main class="px-4">
+    <SectionContainer class="py-32 pb-24">
+      <h1 class="text-white font-bold pb-2">Esteban López</h1>
+      <h2 class="text-emerald-400 font-bold flex flex-row gap-x-2 pb-4">Ingeniero en TI</h2>
+      <h3 class="text-xl lg:text-2xl opacity-80 text-wrap max-w-[700px] mb-8">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus officia quis doloribus fugiat repellendus voluptatum ex suscipit. Voluptatum facere illum, tempora odio nam aliquam itaque, voluptates adipisci, velit porro perspiciatis.</h3>
+      
+      <nav class="flex gap-4 mt-5 flex-wrap">
+        <SocialPill href="https://www.linkedin.com/in/esteban-lópez-campos-936927269/">
+          <LinkedInIcon class="size-4 lg:size-6" />
+          LinkedIn
+        </SocialPill>
+
+        <SocialPill href="https://github.com/Trebys">
+          <GitHubIcon class="size-4 lg:size-6" />
+          GitHub
+        </SocialPill>
+
+        <SocialPill href="mailto:estelopez2014@gmail.com">
+          <MailIcon class="size-4 lg:size-6" />
+          estelopez2014@gmail.com
+        </SocialPill>
+        
+      </nav>
+      
+    </SectionContainer>
+
+    <SectionContainer id="sobre-mi">
+      <h2 class="text-2xl font-semibold mb-6 flex gap-x-2 items-center">
+        <UserIcon class="size-10"/>
+        Sobre mí
+      </h2>
+
+      <h3 class="text-xl lg:text-2xl opacity-80 text-wrap max-w-[700px] mb-8">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus officia quis doloribus fugiat repellendus voluptatum ex suscipit. Voluptatum facere illum, tempora odio nam aliquam itaque, voluptates adipisci, velit porro perspiciatis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut est assumenda dicta voluptatum sit eum cupiditate laudantium quas. Laboriosam voluptatibus vel maxime inventore quas. Ipsam consequatur nihil corporis corrupti quam! Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum eius perferendis accusamus omnis, suscipit, laborum cupiditate aspernatur est expedita sint pariatur doloribus voluptatum tempora tempore dolor inventore. Eos, impedit officiis?</h3>
+    </SectionContainer>
+
+
+    <SectionContainer id="proyectos">
+      <h2 class="text-2xl font-semibold mb-6 flex gap-x-2 items-center ">
+
+        <CodeIcon class="size-10"/>
+        Proyectos
+      </h2>
+      
+      <Projects />
+    </SectionContainer>
+
+    
+  </main>
+
+  <style>
+    h1 {
+      font-size: 2rem; /* Tamaño de fuente base */
+    }
+
+    h2 {
+      font-size: 1.75rem; /* Tamaño de fuente base */
+    }
+
+    h3 {
+      font-size: 1.25rem; /* Tamaño de fuente base */
+    }
+
+    @media (min-width: 640px) {
+      h1 {
+        font-size: 2.5rem; /* Tamaño de fuente en pantallas más grandes */
+      }
+
+      h2 {
+        font-size: 2rem; /* Tamaño de fuente en pantallas más grandes */
+      }
+
+      h3 {
+        font-size: 1.5rem; /* Tamaño de fuente en pantallas más grandes */
+      }
+    }
+
+    @media (min-width: 768px) {
+      h1 {
+        font-size: 3rem; /* Tamaño de fuente en pantallas más grandes */
+      }
+
+      h2 {
+        font-size: 2.5rem; /* Tamaño de fuente en pantallas más grandes */
+      }
+
+      h3 {
+        font-size: 1.75rem; /* Tamaño de fuente en pantallas más grandes */
+      }
+    }
+
+    @media (min-width: 1024px) {
+      h1 {
+        font-size: 3.5rem; /* Tamaño de fuente en pantallas más grandes */
+      }
+
+      h2 {
+        font-size: 3rem; /* Tamaño de fuente en pantallas más grandes */
+      }
+
+      h3 {
+        font-size: 2rem; /* Tamaño de fuente en pantallas más grandes */
+      }
+    }
+
+    
+
+    .w-6.h-6 {
+      stroke: #ffffff; /* Color blanco para el icono */
+    }
+
+    @media (min-width: 640px) {
+      .btn-mail {
+        padding: 0.6em 1.2em;
+        font-size: 1.1rem;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .btn-mail {
+        padding: 0.7em 1.4em;
+        font-size: 1.2rem;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .btn-mail {
+        padding: 0.8em 1.75em;
+        font-size: 1.25rem;
+      }
+    }
+  </style>
+</Layout>
