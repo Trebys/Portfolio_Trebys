@@ -1,0 +1,39 @@
+---
+const personalImageAlt = "Esteban López"
+import LinkedInIcon from "../components/icons/LinkedIn.astro";
+import MailIcon from "../components/icons/Mail.astro"
+import SocialPill from "../components/SocialPill.astro"
+import GitHubIcon from "../components/icons/GitHub.astro";
+---
+
+<div class="max-w-xl">
+  <div class="flex gap-4 mb-4">
+    <img
+      class="rounded-full shadow-lg size-16"
+      src="/src/images/esteban_foto.jpg"
+      alt={personalImageAlt}
+    />
+    
+  </div>
+  <h1 class="text-4xl tracking-tight sm:text-5xl text-gray-800 dark:text-white font-bold pb-2">Esteban López</h1>
+      <h2 class="text-emerald-400 font-bold flex flex-row gap-x-2 pb-4">Ingeniero en TI</h2>
+      <h3 class="text-xl lg:text-2xl opacity-80 text-wrap max-w-[700px] mb-8">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus officia quis doloribus fugiat repellendus voluptatum ex suscipit. Voluptatum facere illum, tempora odio nam aliquam itaque, voluptates adipisci, velit porro perspiciatis.</h3>
+      
+      <nav class="flex gap-4 mt-5 flex-wrap">
+        <SocialPill href="https://www.linkedin.com/in/esteban-lópez-campos-936927269/">
+          <LinkedInIcon class="size-4 lg:size-6" />
+          LinkedIn
+        </SocialPill>
+
+        <SocialPill href="https://github.com/Trebys">
+          <GitHubIcon class="size-4 lg:size-6" />
+          GitHub
+        </SocialPill>
+
+        <SocialPill href="mailto:estelopez2014@gmail.com">
+          <MailIcon class="size-4 lg:size-6" />
+          estelopez2014@gmail.com
+        </SocialPill>
+        
+      </nav>
+</div>
