@@ -24,9 +24,7 @@ const { title, description } = Astro.props;
     <ViewTransitions />
   </head>
   <body class="relative text-black dark:text-white">
-    <div
-      class="absolute inset-0 -z-10 h-full w-full px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#151C25_40%,#55E5A4_100%)]"
-    >
+    <div class="absolute inset-0 -z-10 h-full w-full bg-[radial-gradient(125%_125%_at_50%_10%,#ffffff_40%,#00ff00_100%)] dark:bg-[radial-gradient(125%_125%_at_50%_10%,#151C25_40%,#55E5A4_100%)]">
     </div>
     <Header />
     <slot />

@@ -6,13 +6,12 @@
 >
   <slot />
 </a>
-
 <style>
   .social-pill {
     --color: #00A97F;
     --color2: rgb(10, 25, 30);
     padding: 0.8em 1.75em;
-    background-color: transparent;
+    background-color: black; /* Fondo negro por defecto */
     border-radius: 6px;
     border: 0.3px solid var(--color);
     transition: 0.5s;
@@ -23,12 +22,11 @@
     font-weight: 300;
     font-size: 17px;
     font-family: 'Roboto', 'Segoe UI', sans-serif;
-    
-    color: #ffffff; /* Color blanco del texto */
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 0.5em;
+    color: white; /* Color blanco del texto por defecto */
   }
 
   .social-pill::after, .social-pill::before {
@@ -68,6 +66,17 @@
     transform: scale(0.98);
   }
 
+  /* Modo claro */
+  @media (prefers-color-scheme: light) {
+    .social-pill {
+      color: black; /* Texto e icono en color negro */
+    }
+
+    .social-pill:hover {
+      color: white; /* Texto e icono en color blanco al hacer hover */
+    }
+  }
+
   @media (min-width: 640px) {
     .social-pill {
       padding: 0.6em 1.2em;
@@ -89,3 +98,4 @@
     }
   }
 </style>
+
