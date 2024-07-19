@@ -7,13 +7,11 @@ const navItems = [
     label: "sobre-mi",
     url: "/#sobre-mi",
   },
-
   {
     title: "Proyectos",
     label: "proyectos",
     url: "/#proyectos",
   },
-
   {
     title: "Contacto",
     label: "contacto",
@@ -31,12 +29,13 @@ const navItems = [
   class="fixed top-0 z-10 flex items-center justify-center w-full mx-auto mt-2"
 >
   <!-- Cambiar la foto por un logo-->
-  <div class="absolute left-24 ml-18 top-0">
+  <div class="absolute left-28 ml-18 top-0">
     <a href="#top">
       <img
-        src="/src/images/esteban_foto.jpg"
+        id="logo-img"
+        src="/src/images/dark_sin_fondo.png"
         alt="Esteban logo"
-        class="rounded-full shadow-lg size-12"
+        class="rounded-full shadow-lg size-28"
       />
     </a>
   </div>
@@ -64,8 +63,8 @@ const navItems = [
     const sections = document.querySelectorAll("section");
     const navItems = document.querySelectorAll("header nav a");
 
-    const callback = (entries: any[]) => {
-      entries.forEach((entry) => {
+    const callback = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry: IntersectionObserverEntry) => {
         if (entry.isIntersecting) {
           navItems.forEach((item) => {
             if (item.getAttribute("aria-label") == entry.target.id) {

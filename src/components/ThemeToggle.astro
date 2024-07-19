@@ -1,9 +1,11 @@
 ---
-import SunIcon from "./icons/Sun.astro"
-import MoonIcon from "./icons/Moon.astro"
-import SystemIcon from "./icons/System.astro"
+// Importa los íconos necesarios
+import SunIcon from "./icons/Sun.astro";
+import MoonIcon from "./icons/Moon.astro";
+import SystemIcon from "./icons/System.astro";
 
-const THEMES = ["Light", "Dark", "System"]
+// Define las opciones de temas
+const THEMES = ["Light", "Dark", "System"];
 ---
 
 <div class="relative ml-1 mr-1">
@@ -15,7 +17,7 @@ const THEMES = ["Light", "Dark", "System"]
     <SunIcon id="light" class="theme-toggle-icon size-5 transition-all" />
     <MoonIcon
       id="dark"
-      class="theme-toggle-icon absolute size-5 transition-alls"
+      class="theme-toggle-icon absolute size-5 transition-all"
     />
     <SystemIcon
       id="system"
@@ -27,13 +29,13 @@ const THEMES = ["Light", "Dark", "System"]
     class="absolute hidden scale-80 top-8 right-0 text-sm p-1 min-w-[8rem] rounded-md border border-gray-100 bg-white/90 dark:bg-gray-900/90 dark:border-gray-500/20 shadow-[0_3px_10px_rgb(0,0,0,0.2)] backdrop-blur-md"
   >
     <ul>
-      {
-        THEMES.map((theme) => (
-          <li class="themes-menu-option px-2 py-1.5 cursor-default hover:bg-neutral-400/40 dark:hover:bg-gray-500/50 rounded-sm">
-            {theme}
-          </li>
-        ))
-      }
+      {THEMES.map((theme) => (
+        <li
+          class="themes-menu-option px-2 py-1.5 cursor-default hover:bg-neutral-400/40 dark:hover:bg-gray-500/50 rounded-sm"
+        >
+          {theme}
+        </li>
+      ))}
     </ul>
   </div>
 </div>
@@ -49,7 +51,6 @@ const THEMES = ["Light", "Dark", "System"]
       transform: scale(0.8);
       opacity: 0;
     }
-
     to {
       transform: scale(1);
       opacity: 1;
@@ -58,58 +59,64 @@ const THEMES = ["Light", "Dark", "System"]
 </style>
 
 <script is:inline>
-  let remove = null
-  const matchMedia = window.matchMedia("(prefers-color-scheme: dark)")
-  const themesMenu = document.getElementById("themes-menu")
+  let remove = null;
+  const matchMedia = window.matchMedia("(prefers-color-scheme: dark)");
+  const themesMenu = document.getElementById("themes-menu");
+  const logoImg = document.getElementById("logo-img");
 
   const getThemePreference = () => {
     if (typeof localStorage !== "undefined") {
-      return localStorage.getItem("theme") ?? "system"
+      return localStorage.getItem("theme") ?? "system";
     }
-
     return window.matchMedia("(prefers-color-scheme: dark)").matches
       ? "dark"
-      : "light"
-  }
+      : "light";
+  };
 
   const updateIcon = (themePreference) => {
     document.querySelectorAll(".theme-toggle-icon").forEach((element) => {
-      element.style.scale = element.id === themePreference ? "1" : "0"
-    })
-  }
+      element.style.transform = element.id === themePreference ? "scale(1)" : "scale(0)";
+    });
+  };
 
   const updateTheme = () => {
     if (remove != null) {
-      remove()
+      remove();
     }
-    matchMedia.addEventListener("change", updateTheme)
+    matchMedia.addEventListener("change", updateTheme);
     remove = () => {
-      matchMedia.removeEventListener("change", updateTheme)
-    }
+      matchMedia.removeEventListener("change", updateTheme);
+    };
 
-    const themePreference = getThemePreference()
+    const themePreference = getThemePreference();
     const isDark =
       themePreference === "dark" ||
-      (themePreference === "system" && matchMedia.matches)
+      (themePreference === "system" && matchMedia.matches);
 
-    updateIcon(themePreference)
-    document.documentElement.classList[isDark ? "add" : "remove"]("dark")
-  }
+    updateIcon(themePreference);
+    document.documentElement.classList[isDark ? "add" : "remove"]("dark");
 
-  updateTheme()
+    // Update logo image
+    if (logoImg) {
+      logoImg.src = isDark ? "/src/images/dark_logo.png" : "/src/images/light_logo.png";
+    }
+  };
 
-  document.addEventListener("click", () => themesMenu.classList.remove("open"))
+  updateTheme();
+
+  document.addEventListener("click", () => themesMenu.classList.remove("open"));
 
   document.getElementById("theme-toggle-btn").addEventListener("click", (e) => {
-    e.stopPropagation()
-    const isClosed = !themesMenu.classList.contains("open")
-    themesMenu.classList[isClosed ? "add" : "remove"]("open")
-  })
+    e.stopPropagation();
+    const isClosed = !themesMenu.classList.contains("open");
+    themesMenu.classList[isClosed ? "add" : "remove"]("open");
+  });
 
   document.querySelectorAll(".themes-menu-option").forEach((element) => {
     element.addEventListener("click", (e) => {
-      localStorage.setItem("theme", e.target.innerText.toLowerCase().trim())
-      updateTheme()
-    })
-  })
+      const theme = e.target.innerText.toLowerCase().trim();
+      localStorage.setItem("theme", theme);
+      updateTheme();
+    });
+  });
 </script>
