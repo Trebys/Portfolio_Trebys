@@ -1,21 +1,29 @@
 ---
-const personalImageAlt = "Esteban López";
 import LinkedInIcon from "../components/icons/LinkedIn.astro";
 import MailIcon from "../components/icons/Mail.astro";
 import SocialPill from "../components/SocialPill.astro";
 import GitHubIcon from "../components/icons/GitHub.astro";
+import personalImage from "../images/esteban_foto.jpg";
 ---
-<div class="flex items-center max-w-5xl mx-auto">
+
+<div class="flex flex-col-reverse items-center max-w-5xl gap-8 mx-auto md:flex-row">
   <!-- Contenido -->
-  <div class="mr-8 text-gray-800 dark:text-white">
+  <div class="w-full min-w-0 text-center text-gray-800 md:text-left dark:text-white">
     <h1 class="text-4xl sm:text-5xl tracking-tight font-bold">Esteban López</h1>
-    <h2 class="text-5xl sm:text-5xl tracking-tight font-bold text-emerald-400">Programador Entry-Level Full Stack</h2>
-    <p class="mt-6 text-xl text-gray-800 dark:[&>strong]:text-emerald-300 [&>strong]:text-emerald-400 [&>strong]:font-semibold dark:text-gray-300">
-     
-      <strong>Bienvenido a mi portfolio </strong> 
-      podras ver <strong>quién soy y ver mi CV,</strong> explora <strong> mis trabajos</strong> y si deseas ponerte en <strong>contacto conmigo</strong> o si tienes alguna pregunta para colaborar, podrás hacerlo sin problema. ¡Gracias por visitar!
+    <h2 class="text-4xl tracking-tight font-bold text-emerald-400 sm:text-5xl">
+      Programador Full Stack Junior
+    </h2>
+    <p
+      class="mt-6 text-xl text-gray-800 dark:[&>strong]:text-emerald-300 [&>strong]:text-emerald-400 [&>strong]:font-semibold dark:text-gray-300"
+    >
+      Soy <strong>desarrollador Full Stack Junior</strong>. En este portafolio
+      puedes conocer mi perfil, descargar mi CV y explorar proyectos que
+      muestran mi evolución técnica. Cuento con experiencia laboral en <strong
+        >desarrollo, consultoría y QA</strong
+      >, y actualmente estoy fortaleciendo mi perfil con soluciones web full
+      stack desplegadas.
     </p>
-    <nav class="flex gap-4 mt-8 flex-wrap">
+    <nav class="flex flex-wrap justify-center gap-4 mt-8 md:justify-start">
       <SocialPill href="https://www.linkedin.com/in/esteban-lópez-campos">
         <LinkedInIcon class="size-4 lg:size-6" />
         LinkedIn
@@ -37,10 +45,8 @@ import GitHubIcon from "../components/icons/GitHub.astro";
   <div class="flex-shrink-0">
     <img
       class="rounded-lg shadow-lg w-48 h-48 object-cover"
-      src="/src/images/esteban_foto.jpg"
+      src={personalImage.src}
       alt="Esteban López"
     />
   </div>
 </div>
-
-

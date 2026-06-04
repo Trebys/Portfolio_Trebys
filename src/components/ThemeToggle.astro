@@ -98,7 +98,7 @@ const THEMES = ["Light", "Dark", "System"];
 
     // Update logo image
     if (logoImg) {
-      logoImg.src = isDark ? "/src/images/dark_logo.png" : "/src/images/light_logo.png";
+      logoImg.src = isDark ? logoImg.dataset.darkLogo : logoImg.dataset.lightLogo;
     }
   };
 

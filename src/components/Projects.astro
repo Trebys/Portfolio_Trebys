@@ -1,192 +1,101 @@
 ---
-import NodeJs from "./icons/NodeJs.astro";
-import Bootstrap from "./icons/Bootstrap.astro";
-import JavaScript from "./icons/JavaScript.astro";
-import Dart from "./icons/Dart.astro";
-import CSharp from "./icons/CSharp.astro";
-import MongoDB from "./icons/MongoDB.astro";
-import SQLServer from "./icons/SQLServer.astro";
-import Python from "./icons/Python.astro";
-import LinkIcon from "../components/icons/Link.astro"
+import React from "./icons/React.astro";
+import Django from "./icons/Django.astro";
+import PostgreSQL from "./icons/PostgreSQL.astro";
+import Tailwind from "./icons/TailWind.astro";
+import LinkIcon from "./icons/Link.astro";
 import LinkButton from "./LinkButton.astro";
 import GitHubIcon from "./icons/GitHub.astro";
 
+const PUBLISH_FANTASY_LAND_LIVE_LINK = true;
+const FANTASY_LAND_LIVE_URL = "https://proyecto-brazaletes-web.vercel.app/";
+
 const TAGS = {
-  NODE: {
-    name: 'NodeJs',
-    class: 'bg-[#6fa662] text-white',
-    icon:  NodeJs,
+  REACT: { name: "React", class: "bg-sky-600 text-white", icon: React },
+  DJANGO: { name: "Django", class: "bg-emerald-800 text-white", icon: Django },
+  POSTGRESQL: {
+    name: "PostgreSQL",
+    class: "bg-[#336791] text-white",
+    icon: PostgreSQL,
   },
-
-  BOOTSTRAP: {
-    name: 'Bootstrap',
-    class: 'bg-purple-500 text-white',
-    icon:  Bootstrap,
+  TAILWIND: {
+    name: "Tailwind",
+    class: "bg-cyan-600 text-white",
+    icon: Tailwind,
   },
-
-  JAVASCRIPT: {
-    name: 'JavaScript',
-    class: 'bg-yellow-500 text-black',
-    icon:  JavaScript,
-  },
-
-  MONGODB:{
-    name: 'MongoDB',
-    class: 'bg-green-500 text-white',
-    icon:  MongoDB,
-
-  },
-
-
-  DART: {
-    name: 'Dart',
-    class: 'bg-blue-500 text-white',
-    icon:  Dart,
-  },
-
-  CSHARP: {
-    name: 'C#',
-    class: 'bg-[#68217a] text-white',
-    icon:  CSharp,
-
-  },
-
-  SQLSERVER: {
-      name: 'SQL Server',
-      class: 'bg-[#000000] text-white',
-      icon:  SQLServer,
-    },
-
-  PYTHON: {
-    name: 'Python',
-    class: 'bg-[#306998] text-white',
-    icon:  Python,
-  
-  },
-
-  
-
 };
-
-
 
 const PROJECTS = [
   {
-    title: 'Sistema de Notas',
-    description: 'lorem ipsum dolor sielitt amet, consectetur adipiscing ,lorem ipsum dolor sielitt amet, consectetur adipiscing ,lorem ipsum dolor sielitt amet, consectetur adipiscing ,',
-    link: '#',
-    github: '#',
-    image: '/projects/Notas.webp',
-    tags: [TAGS.NODE, TAGS.BOOTSTRAP, TAGS.JAVASCRIPT, TAGS.MONGODB,],
+    title: "Fantasy Land",
+    description:
+      "Aplicación web full stack para la operación de un parque de atracciones ficticio. Integra experiencia pública, compras y un panel administrativo para gestionar la operación.",
+    github: "https://github.com/Trebys/proyecto-brazaletes-web",
+    link: PUBLISH_FANTASY_LAND_LIVE_LINK ? FANTASY_LAND_LIVE_URL : null,
+    image: "/projects/FantasyLand.png",
+    imageAlt: "Pantalla principal del proyecto Fantasy Land",
+    tags: [TAGS.DJANGO, TAGS.REACT, TAGS.TAILWIND, TAGS.POSTGRESQL],
+    features: [
+      "Autenticación, recuperación de contraseña por correo y gestión de perfil.",
+      "Catálogo público, brazaletes, atracciones, comidas y testimonios moderados.",
+      "Compras con saldo interno o PayPal Sandbox, recibos e historial transaccional.",
+      "Panel administrativo e imágenes persistentes mediante Cloudinary.",
+    ],
   },
-
-  {
-    title: 'App Control de Gastos',
-    description: 'lorem ipsum dolor sielitt amet, consectetur adipiscing ,lorem ipsum dolor sielitt amet, consectetur adipiscing ,lorem ipsum dolor sielitt amet, consectetur adipiscing ,',
-    link: '#',
-    github: '#',
-    image: '/projects/App_Gastos.webp',
-    tags: [TAGS.DART,],
-
-  },
-
-  {
-    title: 'Reporte Averias Equipos Desktop', 
-    description: 'lorem ipsum dolor sielitt amet, consectetur adipiscing ,lorem ipsum dolor sielitt amet, consectetur adipiscing ,lorem ipsum dolor sielitt amet, consectetur adipiscing ,',
-    link: '#',
-    github: '#',
-    image: '/projects/Calendario_Desktop.webp',
-    tags: [TAGS.CSHARP,TAGS.SQLSERVER,],
-
-  },
-
-  {
-    title: 'Gestion de boletos de parque de atracciones',
-    description: 'lorem ipsum dolor sielitt amet, consectetur adipiscing ,lorem ipsum dolor sielitt amet, consectetur adipiscing ,lorem ipsum dolor sielitt amet, consectetur adipiscing ,',
-    link: '#',
-    github: '#',
-    image: '/projects/Boletos.webp',
-    tags: [TAGS.PYTHON,],
-  },
-
-  {
-    title: 'Juego de Carreras por turnos',
-    description: 'lorem ipsum dolor sielitt amet, consectetur adipiscing ,lorem ipsum dolor sielitt amet, consectetur adipiscing ,lorem ipsum dolor sielitt amet, consectetur adipiscing ,',
-    link: '#',
-    github: '#',
-    image: '/projects/Carrera.webp',
-    tags: [TAGS.CSHARP,],
-  },
-
-  {
-    title: 'Sistema de Reservas de Vuelos',
-    description: 'lorem ipsum dolor sielitt amet, consectetur adipiscing ,lorem ipsum dolor sielitt amet, consectetur adipiscing ,lorem ipsum dolor sielitt amet, consectetur adipiscing ,',
-    link: '#',
-    github: '#',
-    image: '/projects/Reservas_Vuelos.webp',
-    tags: [TAGS.CSHARP,TAGS.SQLSERVER,],
-  },
-
-  {
-    title: 'Sistema de loteria',
-    description: 'lorem ipsum dolor sielitt amet, consectetur adipiscing ,lorem ipsum dolor sielitt amet, consectetur adipiscing ,lorem ipsum dolor sielitt amet, consectetur adipiscing ,',
-    link: '#',
-    github: '#',
-    image: '/projects/Loteria.webp',
-    tags: [TAGS.CSHARP],
-  },
-
-
-  
 ];
 ---
+
 <div class="flex flex-col gap-y-16">
-{
-  PROJECTS.map(({ image, title, description, tags,link,github }) => (
-    <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
-      <div class="w-full md:w-1/2">
-    <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
-      <img alt="Recién llegado vs 5 años en Nueva Zelanda" class="object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105" loading="lazy" src={image} />
-    </div>
-  </div>
+  {
+    PROJECTS.map(({ image, imageAlt, title, description, tags, link, github, features }) => (
+      <article class="flex flex-col items-center p-4 space-y-8 border md:p-6 group md:flex-row md:space-x-8 md:space-y-0 rounded-2xl border-emerald-400/40 bg-emerald-950/5">
+        <div class="flex w-full md:w-1/2">
+          <div class="relative flex items-center w-full overflow-hidden transition duration-500 ease-in-out transform shadow-xl rounded-xl bg-emerald-950/20 md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700">
+            <img
+              alt={imageAlt}
+              class="object-contain w-full aspect-video transition duration-500 md:group-hover:scale-[1.02]"
+              loading="lazy"
+              src={image}
+            />
+          </div>
+        </div>
 
-  <div class="w-full md:w-1/2 md:max-w-lg">
-    <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100">
-      {title}
-    </h3>
-    <div class="flex flex-wrap mt-2">
-      <ul class="flex flex-row mb-2 gap-x-2">
-        {tags.map((tag) => (
-          <li>
-            <span class={`flex gap-x-2 rounded-full text-sm ${tag.class} py-1 px-2`}>
-            <tag.icon class="size-4"/>
-            {tag.name}
+        <div class="w-full md:w-1/2 md:max-w-lg">
+          <span class="inline-flex px-3 py-1 mb-3 text-xs font-semibold tracking-wide uppercase rounded-full text-emerald-950 bg-emerald-300">
+            Proyecto destacado
           </span>
-          </li>
-          ))}
-      </ul>
+          <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100">{title}</h3>
+          <ul class="flex flex-wrap gap-2 mt-3 mb-3">
+            {tags.map((tag) => (
+              <li>
+                <span class={`flex gap-x-2 rounded-full text-sm ${tag.class} py-1 px-2`}>
+                  <tag.icon class="size-4" />
+                  {tag.name}
+                </span>
+              </li>
+            ))}
+          </ul>
 
-      <div class="mt-2 text-gray-700 dark:text-gray-400">{description}</div>
-      <footer class="flex items-end justify-start mt-4 gap-x-4">
-      {github && (
-        <LinkButton href={github}>
-          <GitHubIcon class="size-6" />
-          Code
-
-        </LinkButton>
-        
-        
-        )}
-        {link && (
-          <LinkButton href={link}>
-            <LinkIcon class="size-6" />
-            Ver 
-          </LinkButton>
-        )}
-      </footer>
-    </div>
-  </div>
-    </article>
-  ))
- }
+          <p class="text-gray-700 dark:text-gray-300">{description}</p>
+          <ul class="mt-3 space-y-1 text-sm text-gray-700 list-disc list-inside dark:text-gray-300">
+            {features.map((feature) => <li>{feature}</li>)}
+          </ul>
+          <footer class="flex flex-wrap items-end justify-start mt-4 gap-3">
+            {github && (
+              <LinkButton href={github} target="_blank" rel="noopener noreferrer">
+                <GitHubIcon class="size-5" />
+                Código
+              </LinkButton>
+            )}
+            {link && (
+              <LinkButton href={link} target="_blank" rel="noopener noreferrer">
+                <LinkIcon class="size-5" />
+                Ver demo
+              </LinkButton>
+            )}
+          </footer>
+        </div>
+      </article>
+    ))
+  }
 </div>

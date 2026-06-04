@@ -1,5 +1,7 @@
 ---
 import ThemeToggle from "./ThemeToggle.astro";
+import darkLogo from "../images/dark_logo.png";
+import lightLogo from "../images/light_logo.png";
 
 const navItems = [
   {
@@ -17,25 +19,21 @@ const navItems = [
     label: "contacto",
     url: "mailto:estelopez2014@gmail.com",
   },
-  {
-    title: "Experiencia",
-    label: "experiencia",
-    url: "/#experiencia",
-  },
 ];
 ---
 
 <header
   class="fixed top-0 z-10 flex items-center justify-center w-full mx-auto mt-2"
 >
-  <!-- Cambiar la foto por un logo-->
-  <div class="absolute left-28 ml-18 top-0">
+  <div class="absolute hidden lg:block left-8 xl:left-28 top-0">
     <a href="#top">
       <img
         id="logo-img"
-        src="/src/images/dark_sin_fondo.png"
+        src={darkLogo.src}
+        data-dark-logo={darkLogo.src}
+        data-light-logo={lightLogo.src}
         alt="Esteban logo"
-        class="rounded-full shadow-lg size-28"
+        class="object-contain w-28 h-20"
       />
     </a>
   </div>
@@ -102,14 +100,21 @@ const navItems = [
 
 <style>
   nav {
+    --nav-background: rgb(255 255 255 / 0.5);
     animation: nav-shadown 1s linear both;
     animation-timeline: scroll();
     animation-range: 0 100px;
   }
 
+  :global(.dark) nav {
+    --nav-background: rgb(31 41 55 / 0.9);
+  }
+
   @keyframes nav-shadown {
     to {
-      @apply shadow-lg ring-1 backdrop-blur dark:bg-gray-800/90 bg-white/50 ring-white/10;
+      background-color: var(--nav-background);
+      box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+      backdrop-filter: blur(12px);
     }
   }
 </style>
