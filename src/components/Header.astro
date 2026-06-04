@@ -1,21 +1,27 @@
 ---
 import ThemeToggle from "./ThemeToggle.astro";
+import LanguageToggle from "./LanguageToggle.astro";
 import darkLogo from "../images/dark_logo.png";
 import lightLogo from "../images/light_logo.png";
+import { DEFAULT_LANGUAGE, content } from "../i18n/content";
 
+const t = content[DEFAULT_LANGUAGE];
 const navItems = [
   {
-    title: "Sobre mí",
+    title: t.nav.about,
+    i18nKey: "nav.about",
     label: "sobre-mi",
     url: "/#sobre-mi",
   },
   {
-    title: "Proyectos",
+    title: t.nav.projects,
+    i18nKey: "nav.projects",
     label: "proyectos",
     url: "/#proyectos",
   },
   {
-    title: "Contacto",
+    title: t.nav.contact,
+    i18nKey: "nav.contact",
     label: "contacto",
     url: "mailto:estelopez2014@gmail.com",
   },
@@ -48,12 +54,18 @@ const navItems = [
           aria-label={link.label}
           href={link.url}
         >
-          {link.title}
+          <span data-i18n={link.i18nKey}>{link.title}</span>
         </a>
       ))
     }
-    <ThemeToggle />
   </nav>
+
+  <div class="absolute right-3 top-10 flex items-center gap-2 sm:right-6 sm:top-0 lg:right-8">
+    <LanguageToggle />
+    <div class="rounded-full border border-emerald-400/40 bg-white/70 p-2 shadow-sm backdrop-blur dark:bg-gray-900/70">
+      <ThemeToggle />
+    </div>
+  </div>
 </header>
 
 <script>

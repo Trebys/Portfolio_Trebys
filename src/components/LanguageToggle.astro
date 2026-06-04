@@ -1,0 +1,28 @@
+---
+import { DEFAULT_LANGUAGE, LANGUAGES, content } from "../i18n/content";
+
+const currentLanguage = DEFAULT_LANGUAGE;
+---
+
+<div
+  class="flex items-center gap-1 rounded-full border border-emerald-400/40 bg-white/70 px-1 py-0.5 text-xs font-semibold shadow-sm backdrop-blur dark:bg-gray-900/70"
+  aria-label={content[currentLanguage].nav.languageLabel}
+>
+  {
+    Object.entries(LANGUAGES).map(([lang, label]) => (
+      <button
+        type="button"
+        class:list={[
+          "rounded-full px-2 py-1 transition hover:text-emerald-500",
+          lang === currentLanguage
+            ? "bg-emerald-400 text-emerald-950"
+            : "text-gray-600 dark:text-gray-200",
+        ]}
+        data-language-button={lang}
+        aria-pressed={lang === currentLanguage ? "true" : "false"}
+      >
+        {label}
+      </button>
+    ))
+  }
+</div>

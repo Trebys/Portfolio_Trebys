@@ -3,17 +3,19 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { ViewTransitions } from "astro:transitions";
 import "@fontsource-variable/onest";
+import { DEFAULT_LANGUAGE, content } from "../i18n/content";
 
 interface Props {
   title: string;
   description: string;
+  i18n?: typeof content;
 }
 
-const { title, description } = Astro.props;
+const { title, description, i18n = content } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang={DEFAULT_LANGUAGE}>
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
@@ -30,6 +32,74 @@ const { title, description } = Astro.props;
     <slot />
 
     <Footer />
+    <script is:inline define:vars={{ i18n }}>
+      const fallbackLanguage = document.documentElement.lang || "es";
+      const languageButtons = document.querySelectorAll("[data-language-button]");
+      const translatableText = document.querySelectorAll("[data-i18n]");
+      const translatableHtml = document.querySelectorAll("[data-i18n-html]");
+      const translatableHref = document.querySelectorAll("[data-i18n-href]");
+      const translatableAlt = document.querySelectorAll("[data-i18n-alt]");
+      const metaDescription = document.querySelector("meta[name='description']");
+
+      const getValue = (path, language) =>
+        path.split(".").reduce((value, key) => value?.[key], i18n[language]);
+
+      const setLanguage = (language) => {
+        const selectedLanguage = i18n[language] ? language : fallbackLanguage;
+
+        document.documentElement.lang = selectedLanguage;
+        document.title = i18n[selectedLanguage].meta.title;
+
+        if (metaDescription) {
+          metaDescription.setAttribute(
+            "content",
+            i18n[selectedLanguage].meta.description,
+          );
+        }
+
+        translatableText.forEach((element) => {
+          const value = getValue(element.dataset.i18n, selectedLanguage);
+          if (typeof value === "string") element.textContent = value;
+        });
+
+        translatableHtml.forEach((element) => {
+          const value = getValue(element.dataset.i18nHtml, selectedLanguage);
+          if (typeof value === "string") element.innerHTML = value;
+        });
+
+        translatableHref.forEach((element) => {
+          const value = getValue(element.dataset.i18nHref, selectedLanguage);
+          if (typeof value === "string") element.setAttribute("href", value);
+        });
+
+        translatableAlt.forEach((element) => {
+          const value = getValue(element.dataset.i18nAlt, selectedLanguage);
+          if (typeof value === "string") element.setAttribute("alt", value);
+        });
+
+        languageButtons.forEach((button) => {
+          const isActive = button.dataset.languageButton === selectedLanguage;
+          button.setAttribute("aria-pressed", isActive ? "true" : "false");
+          button.classList.toggle("bg-emerald-400", isActive);
+          button.classList.toggle("text-emerald-950", isActive);
+          button.classList.toggle("text-gray-600", !isActive);
+          button.classList.toggle("dark:text-gray-200", !isActive);
+        });
+
+        localStorage.setItem("portfolio-language", selectedLanguage);
+      };
+
+      const savedLanguage =
+        localStorage.getItem("portfolio-language") ?? fallbackLanguage;
+
+      setLanguage(savedLanguage);
+
+      languageButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          setLanguage(button.dataset.languageButton);
+        });
+      });
+    </script>
     <style is:global>
       :root {
         color-scheme: light dark;
