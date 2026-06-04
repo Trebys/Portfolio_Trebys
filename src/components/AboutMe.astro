@@ -100,7 +100,12 @@ const t = content[DEFAULT_LANGUAGE];
     </div>
 
     <!-- Botón de descarga de CV -->
-    <LinkButton href={t.about.cvHref} download data-i18n-href="about.cvHref">
+    <LinkButton
+      href={t.about.cvHref}
+      download={t.about.cvDownloadName}
+      data-i18n-href="about.cvHref"
+      data-i18n-download="about.cvDownloadName"
+    >
       <span data-i18n="about.cvButton">{t.about.cvButton}</span>
     </LinkButton>
   </div>

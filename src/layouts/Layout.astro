@@ -20,7 +20,7 @@ const { title, description, i18n = content } = Astro.props;
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <ViewTransitions />
@@ -39,6 +39,7 @@ const { title, description, i18n = content } = Astro.props;
       const translatableHtml = document.querySelectorAll("[data-i18n-html]");
       const translatableHref = document.querySelectorAll("[data-i18n-href]");
       const translatableAlt = document.querySelectorAll("[data-i18n-alt]");
+      const translatableDownload = document.querySelectorAll("[data-i18n-download]");
       const metaDescription = document.querySelector("meta[name='description']");
 
       const getValue = (path, language) =>
@@ -75,6 +76,11 @@ const { title, description, i18n = content } = Astro.props;
         translatableAlt.forEach((element) => {
           const value = getValue(element.dataset.i18nAlt, selectedLanguage);
           if (typeof value === "string") element.setAttribute("alt", value);
+        });
+
+        translatableDownload.forEach((element) => {
+          const value = getValue(element.dataset.i18nDownload, selectedLanguage);
+          if (typeof value === "string") element.setAttribute("download", value);
         });
 
         languageButtons.forEach((button) => {

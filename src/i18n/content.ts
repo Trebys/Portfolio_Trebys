@@ -32,6 +32,7 @@ export const content = {
         '¡Hola! Mi nombre es <strong>Esteban López Campos</strong>, soy <strong>desarrollador Full Stack Junior graduado del Colegio Universitario de Cartago (CUC)</strong> con un Diplomado en Tecnologías de la Información (2025). Durante mi <strong>práctica profesional</strong> desarrollé módulos web con <strong>Blazor (.NET), C#, CSS/Bootstrap y SQL</strong> dentro de un entorno ágil <strong>(Scrum + Jira)</strong>. También cuento con experiencia laboral en <strong>desarrollo, consultoría y QA</strong>. Mi trayectoria me brinda un perfil integral que abarca <strong>desarrollo full-stack, administración de bases de datos, redes Cisco CCNA y soporte técnico</strong>. Apasionado por la mejora continua, estoy listo para seguir aprendiendo y aportar valor en proyectos desafiantes.',
       cvButton: "Descargar CV",
       cvHref: "/CV/Esteban%20Lopez%20Campos.pdf",
+      cvDownloadName: "Esteban-Lopez-Campos-CV-ES.pdf",
     },
     projects: {
       sectionTitle: "Proyectos",
@@ -81,6 +82,7 @@ export const content = {
         'Hi! My name is <strong>Esteban López Campos</strong>. I am a <strong>Junior Full Stack Developer graduated from Colegio Universitario de Cartago (CUC)</strong> with a Diploma in Information Technologies (2025). During my <strong>professional internship</strong>, I developed web modules with <strong>Blazor (.NET), C#, CSS/Bootstrap and SQL</strong> in an agile environment <strong>(Scrum + Jira)</strong>. I also have work experience in <strong>development, consulting and QA</strong>. My background gives me a well-rounded profile that includes <strong>full-stack development, database administration, Cisco CCNA networking and technical support</strong>. I am passionate about continuous improvement and ready to keep learning while contributing value to challenging projects.',
       cvButton: "Download Resume",
       cvHref: "/CV/Esteban%20Lopez%20Campos%20English.pdf",
+      cvDownloadName: "Esteban-Lopez-Campos-CV-EN.pdf",
     },
     projects: {
       sectionTitle: "Projects",
