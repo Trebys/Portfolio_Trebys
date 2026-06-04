@@ -7,15 +7,21 @@ import HtmlIcon from "./icons/Html.astro";
 import CssIcon from "./icons/Css.astro";
 import JavaIcon from "./icons/Java.astro";
 import SQLIcon from "./icons/SQLServer.astro";
+import PostgreSQL from "./icons/PostgreSQL.astro";
 import LinkButton from "./LinkButton.astro";
+import ReactIcon from "./icons/React.astro";
+import DjangoIcon from "./icons/Django.astro";
+import Bootstrap from "./icons/Bootstrap.astro";
+import Blazor from "./icons/Blazor.astro";
+import personalImage from "../images/esteban_foto.jpg";
 ---
 
-<div class="flex items-center max-w-5xl mx-auto mt-12 p-6">
+<div class="flex flex-col items-center max-w-5xl gap-8 p-4 mx-auto mt-8 md:flex-row md:p-6">
   <!-- Imagen -->
-  <div class="flex-shrink-0 mr-8">
+  <div class="flex-shrink-0">
     <img
       class="rounded-lg shadow-lg w-64 h-64 object-cover"
-      src="/src/images/esteban_foto.jpg"
+      src={personalImage.src}
       alt="Esteban López"
     />
   </div>
@@ -23,8 +29,28 @@ import LinkButton from "./LinkButton.astro";
   <!-- Contenido -->
   <div class="text-gray-800 dark:text-white">
     <h1 class="text-4xl font-semibold text-emerald-400 mb-4">¿Quién soy?</h1>
-    <p class="text-xl text-gray-800 dark:[&>strong]:text-emerald-300 [&>strong]:text-emerald-400 [&>strong]:font-semibold dark:text-gray-300">
-      ¡Hola! Mi nombre es <strong>Esteban López Campos y tengo 22 años</strong>, un estudiante del <strong>Colegio Universitario de Costa Rica (CUC).</strong> Actualmente, estoy a menos de 6 meses de graduarme en la carrera de <strong>Tecnologías de Información.</strong> Durante mis estudios, he adquirido un perfil integral que abarca <strong>soporte técnico de computadoras, redes, inglés, administración de proyectos de software, programación de aplicaciones de escritorio y web, y un sólido conocimiento en bases de datos.</strong> Tengo una gran disposición para aprender y crecer en cualquier campo del sector.
+    <p
+      class="text-xl text-gray-800 dark:[&>strong]:text-emerald-300 [&>strong]:text-emerald-400 [&>strong]:font-semibold dark:text-gray-300"
+    >
+      ¡Hola! Mi nombre es <strong>Esteban López Campos</strong>, soy
+      <strong
+        >desarrollador Full Stack Junior graduado del Colegio Universitario de
+        Cartago (CUC)</strong
+      >
+      con un Diplomado en Tecnologías de la Información (2025). Durante mi <strong
+        >práctica profesional</strong
+      > desarrollé módulos web con <strong
+        >Blazor (.NET), C#, CSS/Bootstrap y SQL</strong
+      >
+      dentro de un entorno ágil
+      <strong>(Scrum + Jira)</strong>. También cuento con experiencia laboral
+      en <strong>desarrollo, consultoría y QA</strong>. Mi trayectoria me brinda
+      un perfil integral que abarca
+      <strong
+        >desarrollo full-stack, administración de bases de datos, redes Cisco
+        CCNA y soporte técnico</strong
+      >. Apasionado por la mejora continua, estoy listo para seguir aprendiendo
+      y aportar valor en proyectos desafiantes.
     </p>
 
     <!-- Icons de tecnologías -->
@@ -34,20 +60,16 @@ import LinkButton from "./LinkButton.astro";
         <span class="mt-2">C#</span>
       </div>
       <div class="flex flex-col items-center">
+        <Blazor class="size-6 mt-2" />
+        <span class="mt-2">Blazor</span>
+      </div>
+      <div class="flex flex-col items-center">
         <PythonIcon class="size-6 mt-2" />
         <span class="mt-2">Python</span>
       </div>
       <div class="flex flex-col items-center">
-        <JavaScriptIcon class="size-6 mt-2" />
-        <span class="mt-2">JavaScript</span>
-      </div>
-      <div class="flex flex-col items-center">
-        <JavaIcon class="size-6 mt-2" />
-        <span class="mt-2">JAVA</span>
-      </div>
-      <div class="flex flex-col items-center">
-        <TailWindIcon class="size-6 mt-2" />
-        <span class="mt-2">TailWind</span>
+        <DjangoIcon class="size-6 mt-2" />
+        <span class="mt-2">Django</span>
       </div>
       <div class="flex flex-col items-center">
         <HtmlIcon class="size-6 mt-2" />
@@ -58,13 +80,39 @@ import LinkButton from "./LinkButton.astro";
         <span class="mt-2">CSS</span>
       </div>
       <div class="flex flex-col items-center">
+        <TailWindIcon class="size-6 mt-2" />
+        <span class="mt-2">Tailwind</span>
+      </div>
+      <div class="flex flex-col items-center">
+        <Bootstrap class="size-6 mt-2" />
+        <span class="mt-2">Bootstrap</span>
+      </div>
+      <div class="flex flex-col items-center">
+        <JavaScriptIcon class="size-6 mt-2" />
+        <span class="mt-2">JavaScript</span>
+      </div>
+
+      <div class="flex flex-col items-center">
+        <ReactIcon class="size-6 mt-2" />
+        <span class="mt-2">React</span>
+      </div>
+      <div class="flex flex-col items-center">
+        <JavaIcon class="size-6 mt-2" />
+        <span class="mt-2">Java</span>
+      </div>
+
+      <div class="flex flex-col items-center">
         <SQLIcon class="size-6 mt-2" />
         <span class="mt-2">SQL Server</span>
+      </div>
+      <div class="flex flex-col items-center">
+        <PostgreSQL class="size-6 mt-2" />
+        <span class="mt-2">PostgreSQL</span>
       </div>
     </div>
 
     <!-- Botón de descarga de CV -->
-    <LinkButton href="/public/CV/CV_Esteban_Lopez.pdf">
+    <LinkButton href="/CV/Esteban%20Lopez%20Campos.pdf" download>
       Descargar CV
     </LinkButton>
   </div>
