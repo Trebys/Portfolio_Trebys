@@ -1,16 +1,22 @@
 
 
+---
+import { DEFAULT_LANGUAGE, content } from "../i18n/content";
+
+const t = content[DEFAULT_LANGUAGE];
+---
+
 <footer class="w-auto mx-4 mt-16 mb-10 rounded-lg shadow bg-black/20 backdrop-blur-lg xl:w-[1120px] xl:mx-auto">
     <div class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
-      <span class="text-sm text-white/90 sm:text-center dark:text-gray-400">© 2026 Esteban López. Casi todos los derechos reservados.
+      <span class="text-sm text-white/90 sm:text-center dark:text-gray-400" data-i18n="footer.rights">{t.footer.rights}
     </span>
     <ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-white/90 sm:mt-0">
         <li>
-            <a href="#sobre-mi" class="hover:underline me-4 md:me-6">Sobre mi</a>
+            <a href="#sobre-mi" class="hover:underline me-4 md:me-6" data-i18n="footer.about">{t.footer.about}</a>
         </li>
 
         <li>
-            <a href="mailto:estelopez2014@gmail.com" class="hover:underline">Contacto</a>
+            <a href="mailto:estelopez2014@gmail.com" class="hover:underline" data-i18n="footer.contact">{t.footer.contact}</a>
         </li>
     </ul>
     </div>

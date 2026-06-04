@@ -6,13 +6,16 @@ import Projects from "../components/Projects.astro";
 import UserIcon from "../components/icons/User.astro";
 import MainInfo from "../components/MainInfo.astro";
 import AboutMe from "../components/AboutMe.astro";
+import { content, DEFAULT_LANGUAGE } from "../i18n/content";
 
+const t = content[DEFAULT_LANGUAGE];
 
 ---
 
 <Layout 
-title="Portfolio de Esteban López - Desarrollador Full Stack Junior"
-description="Conoce el perfil, CV y proyectos de Esteban López, desarrollador Full Stack Junior.">
+title={t.meta.title}
+description={t.meta.description}
+i18n={content}>
 
   <main class="px-4">
     <SectionContainer class="py-32 pb-24">
@@ -26,7 +29,7 @@ description="Conoce el perfil, CV y proyectos de Esteban López, desarrollador F
     <SectionContainer id="sobre-mi">
       <h2 class="flex items-center mb-6 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white">
         <UserIcon class="size-10"/>
-        Sobre mí
+        <span data-i18n="about.sectionTitle">{t.about.sectionTitle}</span>
       </h2>
       <AboutMe />
       
@@ -37,7 +40,7 @@ description="Conoce el perfil, CV y proyectos de Esteban López, desarrollador F
       <h2 class="flex items-center mb-6 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white ">
 
         <CodeIcon class="size-10"/>
-        Proyectos
+        <span data-i18n="projects.sectionTitle">{t.projects.sectionTitle}</span>
       </h2>
       
       <Projects />

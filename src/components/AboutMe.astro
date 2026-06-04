@@ -14,6 +14,9 @@ import DjangoIcon from "./icons/Django.astro";
 import Bootstrap from "./icons/Bootstrap.astro";
 import Blazor from "./icons/Blazor.astro";
 import personalImage from "../images/esteban_foto.jpg";
+import { DEFAULT_LANGUAGE, content } from "../i18n/content";
+
+const t = content[DEFAULT_LANGUAGE];
 ---
 
 <div class="flex flex-col items-center max-w-5xl gap-8 p-4 mx-auto mt-8 md:flex-row md:p-6">
@@ -22,36 +25,21 @@ import personalImage from "../images/esteban_foto.jpg";
     <img
       class="rounded-lg shadow-lg w-64 h-64 object-cover"
       src={personalImage.src}
-      alt="Esteban López"
+      alt={t.hero.imageAlt}
+      data-i18n-alt="hero.imageAlt"
     />
   </div>
 
   <!-- Contenido -->
   <div class="text-gray-800 dark:text-white">
-    <h1 class="text-4xl font-semibold text-emerald-400 mb-4">¿Quién soy?</h1>
+    <h1 class="text-4xl font-semibold text-emerald-400 mb-4" data-i18n="about.heading">
+      {t.about.heading}
+    </h1>
     <p
       class="text-xl text-gray-800 dark:[&>strong]:text-emerald-300 [&>strong]:text-emerald-400 [&>strong]:font-semibold dark:text-gray-300"
-    >
-      ¡Hola! Mi nombre es <strong>Esteban López Campos</strong>, soy
-      <strong
-        >desarrollador Full Stack Junior graduado del Colegio Universitario de
-        Cartago (CUC)</strong
-      >
-      con un Diplomado en Tecnologías de la Información (2025). Durante mi <strong
-        >práctica profesional</strong
-      > desarrollé módulos web con <strong
-        >Blazor (.NET), C#, CSS/Bootstrap y SQL</strong
-      >
-      dentro de un entorno ágil
-      <strong>(Scrum + Jira)</strong>. También cuento con experiencia laboral
-      en <strong>desarrollo, consultoría y QA</strong>. Mi trayectoria me brinda
-      un perfil integral que abarca
-      <strong
-        >desarrollo full-stack, administración de bases de datos, redes Cisco
-        CCNA y soporte técnico</strong
-      >. Apasionado por la mejora continua, estoy listo para seguir aprendiendo
-      y aportar valor en proyectos desafiantes.
-    </p>
+      data-i18n-html="about.bioHtml"
+      set:html={t.about.bioHtml}
+    />
 
     <!-- Icons de tecnologías -->
     <div class="flex flex-wrap gap-4 mb-6 mt-4">
@@ -112,8 +100,8 @@ import personalImage from "../images/esteban_foto.jpg";
     </div>
 
     <!-- Botón de descarga de CV -->
-    <LinkButton href="/CV/Esteban%20Lopez%20Campos.pdf" download>
-      Descargar CV
+    <LinkButton href={t.about.cvHref} download data-i18n-href="about.cvHref">
+      <span data-i18n="about.cvButton">{t.about.cvButton}</span>
     </LinkButton>
   </div>
 </div>
