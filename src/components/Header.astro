@@ -29,7 +29,7 @@ const navItems = [
 ---
 
 <header
-  class="fixed top-0 z-10 flex items-center justify-center w-full mx-auto mt-2"
+  class="fixed top-0 z-10 flex w-full flex-col items-center justify-center gap-2 px-3 pt-2 sm:block sm:px-0"
 >
   <div class="absolute hidden lg:block left-8 xl:left-28 top-0">
     <a href="#top">
@@ -45,7 +45,7 @@ const navItems = [
   </div>
 
   <nav
-    class="flex px-3 text-sm font-medium rounded-full text-gray-600 dark:text-gray-200 justify-center items-center"
+    class="flex items-center justify-center rounded-full px-3 text-sm font-medium text-gray-600 dark:text-gray-200"
   >
     {
       navItems.map((link) => (
@@ -60,9 +60,9 @@ const navItems = [
     }
   </nav>
 
-  <div class="absolute right-3 top-10 flex items-center gap-2 sm:right-6 sm:top-0 lg:right-8">
+  <div class="flex items-center gap-2 rounded-full border border-emerald-400/30 bg-white/60 p-1 shadow-sm backdrop-blur dark:bg-gray-900/60 sm:absolute sm:right-6 sm:top-0 lg:right-8">
     <LanguageToggle />
-    <div class="rounded-full border border-emerald-400/40 bg-white/70 p-2 shadow-sm backdrop-blur dark:bg-gray-900/70">
+    <div class="rounded-full border border-emerald-400/40 bg-white/70 p-1.5 shadow-sm backdrop-blur dark:bg-gray-900/70">
       <ThemeToggle />
     </div>
   </div>
