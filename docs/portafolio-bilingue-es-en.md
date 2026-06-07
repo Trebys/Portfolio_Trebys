@@ -10,7 +10,9 @@ mezclar esta tarea con SCRUM-39.
 - Se mantiene español como idioma por defecto.
 - Se centralizaron los textos en `src/i18n/content.ts`.
 - El selector `ES | EN` vive en `src/components/LanguageToggle.astro` y se
-  muestra separado de la navegación principal, en la parte superior derecha.
+  mantiene visible como control secundario del header. En mobile se integra en un
+  dock compacto centrado debajo de la navegacion principal; desde `sm` en adelante
+  vuelve a ubicarse en la parte superior derecha.
 - Se usan etiquetas de idioma `ES` y `EN` en lugar de banderas, porque español e
   inglés son idiomas y no representan un único país.
 - El cambio de idioma se aplica en cliente desde `src/layouts/Layout.astro`.
@@ -54,8 +56,9 @@ El CV en español no fue reemplazado.
 ## Revisión final
 
 - [x] Revisión visual manual en navegador del selector `ES | EN`.
-- [x] Selector de idioma y selector de tema ubicados como controles secundarios
-  en la parte superior derecha.
+- [x] Selector de idioma y selector de tema ubicados como controles secundarios:
+  en mobile se alinean en un dock compacto bajo el nav, y desde `sm` en adelante
+  vuelven a la parte superior derecha.
 - [x] Se confirmó que la descarga del CV cambia correctamente entre español e
   inglés.
 - [x] Se confirmó que el diseño se mantiene sin rehacer la estructura visual.
