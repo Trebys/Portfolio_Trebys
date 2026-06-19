@@ -45,7 +45,7 @@ const navItems = [
   </div>
 
   <nav
-    class="flex items-center justify-center rounded-full px-3 text-sm font-medium text-gray-600 dark:text-gray-200"
+    class="portfolio-nav mx-auto flex w-fit items-center justify-center rounded-full px-3 text-sm font-medium text-gray-600 dark:text-gray-200"
   >
     {
       navItems.map((link) => (
@@ -111,14 +111,14 @@ const navItems = [
 </script>
 
 <style>
-  nav {
+  .portfolio-nav {
     --nav-background: rgb(255 255 255 / 0.5);
     animation: nav-shadown 1s linear both;
     animation-timeline: scroll();
     animation-range: 0 100px;
   }
 
-  :global(.dark) nav {
+  :global(.dark) .portfolio-nav {
     --nav-background: rgb(31 41 55 / 0.9);
   }
 
