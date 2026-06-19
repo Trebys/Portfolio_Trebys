@@ -13,6 +13,8 @@ mezclar esta tarea con SCRUM-39.
   mantiene visible como control secundario del header. En mobile se integra en un
   dock compacto centrado debajo de la navegacion principal; desde `sm` en adelante
   vuelve a ubicarse en la parte superior derecha.
+- El fondo animado del nav al hacer scroll queda limitado al ancho de los enlaces,
+  evitando que una banda horizontal cubra el logo o controles secundarios.
 - Se usan etiquetas de idioma `ES` y `EN` en lugar de banderas, porque español e
   inglés son idiomas y no representan un único país.
 - El cambio de idioma se aplica en cliente desde `src/layouts/Layout.astro`.
